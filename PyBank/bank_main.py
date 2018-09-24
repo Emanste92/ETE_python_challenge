@@ -1,11 +1,11 @@
 import os
 import csv
-
 bank_csv = os.path.join("./budget_data.csv")
 
 months = 0
 netTotal = 0 
 averageChange = 0
+
 
 print(bank_csv)
 with open(bank_csv,newline="") as bankcsvfile:
@@ -18,7 +18,7 @@ with open(bank_csv,newline="") as bankcsvfile:
     for row in csvreader:
         months = months + 1
         netTotal += int(row[1])
-averageChange = netTotal / months # fix this
+        
     
 # Printing Output
 print()
