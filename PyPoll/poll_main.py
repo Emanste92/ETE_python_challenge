@@ -41,7 +41,9 @@ with open(poll_csv,newline="") as pollcsvfile:
 # making a new list and defining a function to generate election totals strings
     organizing_cand_data = [[name, percentage, votesTotal] for name, percentage, votesTotal in zip(cand_name,cand_percentage,cand_votes)]
     for row in organizing_cand_data:
-        print(f'{row[0]}: {row[1]}% ({row[2]})')
+        organized_cand_data = print(f'{row[0]}: {row[1]}% ({row[2]})')
+
+
 
 # trying to put these print statements into a variable that I can put in the summary variable below
 
@@ -53,7 +55,7 @@ with open(poll_csv,newline="") as pollcsvfile:
     -------------------------
     Total Votes: {voters}
     -------------------------
-    
+    {organized_cand_data}
     -------------------------
     Winner: {max(election_winner)[1]}
     """
