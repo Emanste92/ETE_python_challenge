@@ -29,6 +29,7 @@ with open(bank_csv,newline="") as bankcsvfile:
     for i in range(1, int(len(months))):
         difList.append(int(earnings[i]) - int(earnings[i-1]))
         averageChange = sum(difList) / int(len(months) - 1)
+
 # using max() and min() to find the greatest increase in 
 # profits and greatest decrease in losses, as well as 
 # their respective months; + 1 to ensure that the first month 
@@ -39,24 +40,20 @@ with open(bank_csv,newline="") as bankcsvfile:
     greatestLossmonth = months[difList.index(min(difList)) + 1]
 
 # printing data summary
-    def dataSummary():
-        print()
-        print("Financial Analysis")
-        print("-------------------------")
-        print(f"Total Months: {int(len(months))}")
-        print(f"Total: ${netTotal}")
-        print(f"Average Change: ${round(averageChange, 2)}")
-        print(f"Greatest Increase in Profits: {greatestProfitmonth} (${greatestProfit})")
-        print(f"Greatest Decrease in Profits: {greatestLossmonth} (${greatestLoss})")
-        return
+    dataSummary = f"""
 
-    dataSummary()
+    Financial Analysis
+    -------------------------
+    Total Months: {int(len(months))}
+    Total: ${netTotal}
+    Average Change: ${round(averageChange, 2)}
+    Greatest Increase in Profits: {greatestProfitmonth} (${greatestProfit})
+    Greatest Decrease in Profits: {greatestLossmonth} (${greatestLoss})
+    
+    """
+    print(dataSummary)
 
 # putting data summary as a .txt file output
-#sys.stdout = open('bank_data.txt','w'
-
-
-# # # trying to figure out how to print print statements
-# f = open("bank_data.txt","x")
-# f.write()
-# f.close()
+f = open('bank_data.txt','w')
+f.write(dataSummary)
+f.close()
